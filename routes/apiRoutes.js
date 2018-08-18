@@ -1,24 +1,71 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
+
+  // register
+  app.post("/api/register", function(req, res) {
+    console.log(req.body);
+    db.User.create({
+      username: req.body.username,
+      password: req.body.password
+    }).then(function(dbUser) {
+        res.json(dbUser);
+    }).catch(function(err) {
+      res.json(err);
     });
   });
 
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
+  // login
+  app.get("/api/login", function(req, res) {
+    db.User.findOne({
+      where: {
+        username: req.body.username,
+        password: req.body.password
+      }
+    }).then(function(dbUser) {
+      res.json(dbUser);
+    }).catch(function(err) {
+      res.json(err);
     });
   });
 
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.json(dbExample);
+  // get day's data
+  app.get("/api/prices/:day", function(req, res) {
+    db.Company.findAll({
+      where: {
+        day: req.params.day
+      }
+    }).then(function(dbCompany) {
+        res.json(dbCompany);
+    }).catch(function(err) {
+      res.json(err);
     });
   });
-};
+
+  // buy 1 stock (put portfolio table)
+  app.post("/api/buy", function(req, res) {
+    console.log(req.body);
+    db.Portfolio.create({
+      userid:   req.body.userid,
+      ticker:   req.body.ticker,
+      quantity: req.body.quantity,
+      day:      req.body.day
+    }).then(function(dbPortfolio) {
+        res.json(dbPortfolio);
+    }).catch(function(err) {
+      res.json(err);
+    });
+  });
+
+  // sell 1 stock (put portfolio table)
+  app.delete("/api/sell", function(req, res) {
+    db.Portfolio.destroy({
+      where: {
+        ticker: req.body.ticker
+      }
+    }).then(function(db) {
+      res.json(dbPortfolio)
+    }).catch(function(err) {
+      res.json(err);
+    });
+  });
