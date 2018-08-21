@@ -1,8 +1,8 @@
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("User", {
     // Giving the User model a name of type STRING
-    username: DataTypes.STRING,
-    password:DataTypes.STRING
+    username: { type: DataTypes.STRING, unique: true },
+    password: DataTypes.STRING
   });
 
   User.associate = function(models) {
