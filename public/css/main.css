@@ -87,3 +87,9 @@
     display: block; 
     width: 100%; 
   }
+  
+  .container start {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+ }
