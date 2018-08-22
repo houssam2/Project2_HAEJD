@@ -1,12 +1,12 @@
-  .primary-overlay {
-    background: rgba(112, 81, 176, 0.7); 
+  /* .primary-overlay {
+    background: rgba(205, 193, 230, 0.7); 
     position: absolute; 
     top: 0; 
     left: 0; 
     width: 100%; 
     height: 100%; 
     overflow: hidden; 
-  }
+  } */
   
   body {
     display: flex;
@@ -37,12 +37,12 @@
 
   .section-developers {
     position: relative; 
-    background: url(../img/code.jpg); 
+    background: url(../img/broker.png); 
     background-size: cover; 
-    background-postion: center; 
+    /* background-position: center;  */
     border-top: #333 solid 5px; 
     border-bottom:#333 solid 5px; 
-    min-height: 160px; 
+    min-height: 220px; 
   }
 
   .section-podcast a {
@@ -50,7 +50,7 @@
 
   }
 
-  .section-podcast{
+  /* .section-podcast{
     position: relative; 
     background: url(../img/circuit.jpg); 
     background-size: cover; 
@@ -62,7 +62,7 @@
 
   .section-podcast .primary-overlay {
     background: rgba(112, 81, 176, 0.9); 
-  }
+  } */
 
   @media(max-width: 500px) {
     .section-developers,
