@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
   var Portfolio = sequelize.define("Portfolio", {
     stock_quantity: DataTypes.INTEGER,
-    buy_price: DataTypes.DECIMAL
+    buy_price: DataTypes.DECIMAL(10,4)
   });
 
   Portfolio.associate = function(models) {
