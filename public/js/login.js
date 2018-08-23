@@ -28,11 +28,11 @@ $("#login-btn").on("click", function(event) {
       } 
       else 
       {
-        alert("You are a valid user...");
+        //alert("You are a valid user...");
         sessionStorage.setItem("login_status", "success");
         //alert("user id to be stored in session var*****"+data.id);
         sessionStorage.setItem("userid", data.id);
-        alert("replacing window...");
+        //alert("replacing window...");
         location.replace("/app");
       }
           
