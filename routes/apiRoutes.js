@@ -1,3 +1,5 @@
+"use strict";
+
 var db = require("../models");
 
 module.exports = function(sequelize, app) {
@@ -30,11 +32,27 @@ module.exports = function(sequelize, app) {
     });
   });
 
+  app.delete("/api/portfolio/:userid", function(req, res) {
+    db.Portfolio.destroy({
+      where: {
+        UserId: req.params.userid
+      }
+    }).then(function(dbPortfolio) {
+      res.json(dbPortfolio);
+    });
+  });
+
+  const MAXDAY = 30;  // Test only
+
   // get day's data
   app.get("/api/prices/:day", function(req, res) {
+    let current_day = req.params.day;
+    if (current_day > MAXDAY) {
+      current_day = 1000000; // Simulate end of prices. 
+    }
     db.Company.findAll({
       where: {
-        day: req.params.day
+        day: current_day
       }
     }).then(function(dbCompany) {
         res.json(dbCompany);
