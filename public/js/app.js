@@ -1,7 +1,5 @@
 "use strict";
 
-//sessionStorage.setItem("login_status", "success"); // Test only
-
 if ( sessionStorage.getItem("login_status") == "fail" || 
     !sessionStorage.getItem("login_status")
    ) {
@@ -11,7 +9,8 @@ if ( sessionStorage.getItem("login_status") == "fail" ||
 const INTERVAL_MS = 1000;
 
 let intervalId;
-let day = 0;
+let current_day = 0;
+let current_date;
 let running = false;
 let paused = false;
 
@@ -26,8 +25,16 @@ $("#pause_btn").on("click", pause_toggle);
 $("#stop_btn").on("click", stop);
 $(".buy-btns").on("click", buy);
 
-//let userid = 1;  // Test, get from session variable
 let userid = sessionStorage.getItem("userid");
+init();
+
+function init() {
+    // Show all company cards
+    $(".card").show();
+
+    // Hide all portfolio cards
+    $(".card-panel").hide();
+}
 
 function start() {
     if (running) { return; }
@@ -41,32 +48,36 @@ function start() {
         console.log("Delete portfolio for user" + userid)
     });
 
-    // TBD: show all company cards
+    init();
 
-    day = 0;
+    current_day = 0;
     clearInterval(intervalId);
     intervalId = setInterval(intervalProcessing, INTERVAL_MS);
     running = true;
 }
 
 function intervalProcessing() {
-    ++day;
-    console.log("IntervalProcessing() - Day: " + day);
-    getPricesForDay(day);
+    ++current_day;
+    console.log("IntervalProcessing() - Day: " + current_day);
+    getPricesForDay();
 }
 
 let currentPrices = [];
 
-function getPricesForDay(day) {
-    $.get("api/prices/"+day, function(prices) {
-        // console.log(JSON.stringify(prices));
+function getPricesForDay() {
+    $.get("api/prices/"+current_day, function(prices) {
+        console.log(JSON.stringify(prices[0]));
+
+        current_date = prices[0].date.substring(0,10); // just date, ignore time
+        console.log(current_date);
+
         if (prices.length === 0) {
             stop();
         } else {
             currentPrices = prices;
-            // Populate company tiles with daily prices
-            //for (let p=0; p<prices.length; ++p) {
-            for (let p=0; p<2; ++p) { // Test only
+            // Populate company cards with daily prices
+            for (let p=0; p<prices.length; ++p) {
+            //for (let p=0; p<2; ++p) { // Test only
                 // TBD
                 //if (user owns company) {
                     // Update portfolio card
@@ -78,6 +89,9 @@ function getPricesForDay(day) {
         }
     });
 }
+
+let portfolio = [];
+let owned_stock = {};
 
 function buy() {
     console.log("buy");
@@ -95,7 +109,7 @@ function buy() {
         }
     }
 
-    // Buy company stock. Creates portfolio table entry
+    // Add bought stock to portfolio db table
     $.post("/api/buy", {
         userid: userid,
         companyid: cmpy_obj.id,
@@ -105,7 +119,15 @@ function buy() {
         console.log(JSON.stringify(data));
     });
 
+    // Add bought stock to local portfolio
+    owned_stock.company_name = cmpy_obj.company;
+    owned_stock.companyid = cmpy_obj.id;
+    owned_stock.buy_price = cmpy_obj.close;
+    owned_stock.stock_quantity = 1;
+    portfolio.push(owned_stock);
+
     // TBD: Create portfolio card (use jquery)
+
 }
 
 function sell() {
