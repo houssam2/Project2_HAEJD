@@ -1,6 +1,6 @@
 "use strict";
 
-sessionStorage.setItem("login_status", "success"); // Test only
+//sessionStorage.setItem("login_status", "success"); // Test only
 
 if ( sessionStorage.getItem("login_status") == "fail" || 
     !sessionStorage.getItem("login_status")
@@ -26,7 +26,8 @@ $("#pause_btn").on("click", pause_toggle);
 $("#stop_btn").on("click", stop);
 $(".buy-btns").on("click", buy);
 
-let userid = 1;  // Test, get from session variable
+//let userid = 1;  // Test, get from session variable
+let userid = sessionStorage.getItem("userid");
 
 function start() {
     if (running) { return; }
