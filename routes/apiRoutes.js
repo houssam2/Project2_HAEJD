@@ -42,14 +42,15 @@ module.exports = function(sequelize, app) {
     });
   });
 
-  const MAXDAY = 30;  // Test only
+  //const MAXDAY = 30;  // Test
 
   // get day's data
   app.get("/api/prices/:day", function(req, res) {
     let current_day = req.params.day;
-    if (current_day > MAXDAY) {
-      current_day = 1000000; // Simulate end of prices. 
-    }
+    // Test
+    // if (current_day > MAXDAY) {
+    //   current_day = 1000000; // Simulate end of prices. 
+    // }
     db.Company.findAll({
       where: {
         day: current_day
@@ -76,10 +77,9 @@ module.exports = function(sequelize, app) {
     });
   });
 
-  //Model.update({ field: sequelize.literal('field + 2') }, { where: { id: model_id } });
-
   // sell 1 stock (put portfolio table)
   app.put("/api/sell", function(req, res) {
+    console.log("SELLING: portId="+req.body.id+",  qty="+req.body.stock_quantity);
     var sell_qty =  req.body.stock_quantity;
     var literal = "stock_quantity - " + sell_qty; // "stock_quantity - 30"
     console.log(literal);
