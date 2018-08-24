@@ -50,20 +50,6 @@
 
   }
 
-  /* .section-podcast{
-    position: relative; 
-    background: url(../img/circuit.jpg); 
-    background-size: cover; 
-    background-position: center; 
-    border-top: #333 solid 5px; 
-    border-bottom:#333 solid 5px; 
-    min-height: 160px;
-  }
-
-  .section-podcast .primary-overlay {
-    background: rgba(112, 81, 176, 0.9); 
-  } */
-
   @media(max-width: 500px) {
     .section-developers,
     .section-podcast {
@@ -97,3 +83,12 @@
  .cardPic {
    width: 90%;
  }
+
+ .money {
+  
+    color: #FFFFFF;
+    background: #b8b8b8;
+    text-shadow: 4px 3px 0 #7A7A7A;
+    color: #FFFFFF;
+    background: #b8b8b8;
+    }
