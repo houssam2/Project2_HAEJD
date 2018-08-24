@@ -24,7 +24,7 @@ $("#start_btn").on("click", start);
 $("#pause_btn").on("click", pause_toggle);
 $("#stop_btn").on("click", stop);
 $(".buy-btns").on("click", buy);
-
+$(".sell-btns").on("click", sell);
 let userid = sessionStorage.getItem("userid");
 init();
 
@@ -153,6 +153,9 @@ function get_empty_panel() {
 function sell() {
     console.log("sell");
 
+    //get the card panel that was clicked
+    var card_panel_number =  ($(this).attr("data-sell"));
+    console.log(card_panels);
     // Show company card
 
     // Sell company stock. Updates portfolio table entry
