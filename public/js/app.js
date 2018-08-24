@@ -85,11 +85,21 @@ function getPricesForDay() {
 
 let portfolio = [];
 let owned_stock = {};
+let card_panels = []; for (let i=0; i<6; ++i) { card_panels.push(false); }
 
 function buy() {
     console.log("buy");
-    
-    // Hide company card
+
+    let available_card_panel = get_empty_panel();
+    if (available_card_panel === -1) {
+        console.log("Already have 6 stocks. Can't buy anymore!");
+        return;
+    }
+    card_panels[available_card_panel] = true;
+    console.log(card_panels);
+    console.log(available_card_panel);
+
+    // Hide company card, so we can't buy it again
     var buy_cmpy =  ($(this).attr("data-cmpy"));
     console.log(buy_cmpy);
     $("#"+buy_cmpy+"-card").hide();
@@ -102,6 +112,14 @@ function buy() {
         }
     }
 
+    // Add bought stock to local portfolio
+    owned_stock.company_name = cmpy_obj.company;
+    owned_stock.companyid = cmpy_obj.id;
+    owned_stock.buy_price = cmpy_obj.close;
+    owned_stock.stock_quantity = 1;
+    owned_stock.card_panel = available_card_panel;
+    portfolio.push(owned_stock);
+
     // Add bought stock to portfolio db table
     $.post("/api/buy", {
         userid: userid,
@@ -112,15 +130,24 @@ function buy() {
         console.log(JSON.stringify(data));
     });
 
-    // Add bought stock to local portfolio
-    owned_stock.company_name = cmpy_obj.company;
-    owned_stock.companyid = cmpy_obj.id;
-    owned_stock.buy_price = cmpy_obj.close;
-    owned_stock.stock_quantity = 1;
-    portfolio.push(owned_stock);
-
     // TBD: Create portfolio card (use jquery)
+    $("#name"+available_card_panel).text(owned_stock.company_name);
+    $("#buy_prc"+available_card_panel).text(owned_stock.buy_price);
+    $("#crnt_prc"+available_card_panel).text(owned_stock.buy_price);
+    $("#pl"+available_card_panel).text("0.00");
+    $("#card-panel"+available_card_panel).show();
+}
 
+// Find an empty card panel. 
+// If found, return the number of the card panel.
+// If not found, it means we already own 6 stocks, and it returns -1.
+function get_empty_panel() {
+    for (let i=0; i<card_panels.length; ++i) {
+        if (!card_panels[i]) {
+            return i;
+        }
+    }
+    return -1;
 }
 
 function sell() {
