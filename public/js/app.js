@@ -66,8 +66,7 @@ let currentPrices = [];
 
 function getPricesForDay() {
     $.get("api/prices/"+current_day, function(prices) {
-        console.log(JSON.stringify(prices[0]));
-
+ 
         current_date = prices[0].date.substring(0,10); // just date, ignore time
         console.log(current_date);
 
@@ -77,13 +76,7 @@ function getPricesForDay() {
             currentPrices = prices;
             // Populate company cards with daily prices
             for (let p=0; p<prices.length; ++p) {
-            //for (let p=0; p<2; ++p) { // Test only
-                // TBD
-                //if (user owns company) {
-                    // Update portfolio card
-                //} else {
-                    // Update company card
-                    $("#"+prices[p].company).text(prices[p].close);
+                    $("#"+prices[p].company.replace("&","\\&")).text(prices[p].close);
                 //}
             }
         }
