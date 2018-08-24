@@ -7,88 +7,89 @@
     height: 100%; 
     overflow: hidden; 
   } */
-  
-  body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.main-header {
+  background: url(../img/dayTrader.jpg);
+  background-size: cover; 
+  background-position: center;
+  min-height: 600px; 
+  color: fff; 
+}
+
+.main-header .showcase {
+  padding-top: 100px; 
+}
+
+.active-link {
+  color: #d847f1; 
+  font-weight: bold; 
+}
+
+.section-developers {
+  position: relative; 
+  background: url(../img/broker.png); 
+  background-size: cover; 
+  /* background-position: center;  */
+  border-top: #333 solid 5px; 
+  border-bottom:#333 solid 5px; 
+  min-height: 220px; 
+}
+
+.section-podcast a {
+  margin-top: 30px; 
+
+}
+
+@media(max-width: 500px) {
+  .section-developers,
+  .section-podcast {
+    min-height: 240px; 
   }
+}
 
-  main {
-    flex: 1 0 auto;
-  }
+.carousel-item p {
+  font-size: 20px !important; 
+}
 
- .main-header {
-    background: url(../img/dayTrader.jpg);
-    background-size: cover; 
-    background-position: center;
-    min-height: 600px; 
-    color: fff; 
-  }
+.main-header-inner {
+  background: url(../img/dayTrader.jpg);
+  background-size: cover; 
+  background-position: center;
+  min-height: 600px; 
+  color: fff; 
+}
 
-  .main-header .showcase {
-    padding-top: 100px; 
-  }
+.btn-extend {
+  display: block; 
+  width: 100%; 
+}
 
-  .active-link {
-    color: #d847f1; 
-    font-weight: bold; 
-  }
+.container start {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
 
-  .section-developers {
-    position: relative; 
-    background: url(../img/broker.png); 
-    background-size: cover; 
-    /* background-position: center;  */
-    border-top: #333 solid 5px; 
-    border-bottom:#333 solid 5px; 
-    min-height: 220px; 
-  }
+.cardPic {
+  width: 90%;
+}
 
-  .section-podcast a {
-    margin-top: 30px; 
+.summary_info {
+  margin-left: 20px; 
+}
 
-  }
-
-  @media(max-width: 500px) {
-    .section-developers,
-    .section-podcast {
-      min-height: 240px; 
-    }
-  }
-
-  .carousel-item p {
-    font-size: 20px !important; 
-  }
-
-  .main-header-inner {
-    background: url(../img/dayTrader.jpg);
-    background-size: cover; 
-    background-position: center;
-    min-height: 600px; 
-    color: fff; 
-  }
-
-  .btn-extend {
-    display: block; 
-    width: 100%; 
-  }
-  
-  .container start {
-    margin: auto;
-    width: 50%;
-    padding: 10px;
- }
-
- .cardPic {
-   width: 90%;
- }
-
- .money {
-  
-    color: #FFFFFF;
-    background: #b8b8b8;
-    text-shadow: 4px 3px 0 #7A7A7A;
-    color: #FFFFFF;
-    background: #b8b8b8;
-    }
+.summary_info_value {
+  color: #FFFFFF;
+  background: #4d4545;
+  text-shadow: 4px 3px 0 #7A7A7A;
+}
