@@ -93,3 +93,8 @@ main {
   background: #4d4545;
   text-shadow: 4px 3px 0 #7A7A7A;
 }
+
+.startstop {
+  width: 100%;
+  text-align: center;
+}
