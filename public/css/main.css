@@ -1,12 +1,12 @@
-  /* .primary-overlay {
-    background: rgba(205, 193, 230, 0.7); 
+  .primary-overlay {
+    background: rgba(174, 226, 249, 0.7); 
     position: absolute; 
     top: 0; 
     left: 0; 
     width: 100%; 
     height: 100%; 
     overflow: hidden; 
-  } */
+  }
 
 body {
   display: flex;
@@ -81,7 +81,7 @@ main {
 }
 
 .cardPic {
-  width: 90%;
+  width: 100%;
 }
 
 .summary_info {
@@ -91,10 +91,18 @@ main {
 .summary_info_value {
   color: #FFFFFF;
   background: #4d4545;
-  text-shadow: 4px 3px 0 #7A7A7A;
+  /* text-shadow: 4px 3px 0 #7A7A7A; */
 }
 
 .startstop {
   width: 100%;
   text-align: center;
+}
+
+.right {
+  font-size: 25px; 
+}
+
+.showcase {
+  color: #d50000; 
 }
