@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "",
+    "password": "bapun",
     "database": "stocks_db",
     "host": "localhost",
     "dialect": "mysql"
