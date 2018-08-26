@@ -243,7 +243,7 @@ function buy() {
         portfolio.push(stock_entry);
 
         // Hide company card, so we can't buy it again
-        $("#"+buy_cmpy+"-card").hide();
+        $("#"+buy_cmpy.replace("&","\\&")+"-card").hide();
 
         // Populate & show portfolio card
         $("#name"+available_card_panel).text(stock_entry.company_name);
@@ -321,7 +321,7 @@ function sell() {
 
         // Show company card
         console.log("**3: Show company card");
-        let card = "#"+cmpy_name+"-card";
+        let card = "#"+cmpy_name.replace("&","\\&")+"-card";
         console.log("***** card="+card);
         $(card).show();
 
