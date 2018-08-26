@@ -19,6 +19,12 @@ let current_day;
 let current_date;
 let current_pl;
 
+let first = true;
+
+
+let stocks =[];
+
+
 let currentPrices = [];
 let portfolio = [];
 let card_panels = []; for (let i=0; i<PORTFOLIO_MAX; ++i) { card_panels.push(false); }
@@ -100,8 +106,68 @@ function getPricesForDay() {
 
             // For each price received
             for (let p=0; p<prices.length; ++p) {
+
+                if (first) {
+                    stocks.push({
+                        x: [], //day 
+                        y: [], //closing price
+                        mode: 'line',
+                        price: 0.00,
+                        company: ""
+                    });
+
+                }
+
+                stocks[p].company = prices[p].company;
+                stocks[p].price = prices[p].close;
+
                 // Populate company card with daily price
                 $("#"+prices[p].company.replace("&","\\&")).text(parseFloat(prices[p].close).toFixed(2));
+
+                //supporting graph code
+               // if(prices[p].company=="Amex"){//check card id for 
+                    // let stock = {
+                    //     x: [], //day 
+                    //     y: [], //closing price
+                    //     mode: 'line',
+                    //     price: 0.00,
+                    //     name: ""
+                    // };    
+                    
+               
+                    stocks[p].x.push(prices[p].day);
+                    stocks[p].y.push(prices[p].close);
+                    console.log("xaxis data "+stocks[p].x);
+                    console.log("yaxis data "+stocks[p].y);
+
+
+
+                    var data = [stocks[p]];
+
+                    var layout = {
+                        //title:'Line Plot',
+                        width: 50,
+                        height: 30,
+                        xaxis: {
+                          showticklabels: false
+                        },
+                        yaxis: {
+                          showticklabels: false
+                        },
+                       // autosize: true,
+                        margin: {
+                          autoexpand: false,
+                          l: 0,
+                          r: 0,
+                          t: 0,
+                          b:0
+                        },
+                      };
+                    
+                    Plotly.newPlot(prices[p].company+"_graph", data, layout);
+
+               // }
+                //
 
                 // If stock is in portfolio, update company's card-panel with daily price & P&L
                 for (let j=0; j<card_panels.length; ++j) {
@@ -114,6 +180,7 @@ function getPricesForDay() {
                     }
                 }
             }
+            first = false;
             console.log("Calling update_and_display_pl() from getPricesForDay()");
             update_and_display_pl();
         }
