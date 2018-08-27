@@ -164,7 +164,7 @@ function getPricesForDay() {
                         },
                       };
                     
-                    Plotly.newPlot(prices[p].company+"_graph", data, layout);
+                    Plotly.newPlot(prices[p].company+"_graph", data, layout, {displayModeBar: false});
 
                // }
                 //
