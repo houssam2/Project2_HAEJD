@@ -1,5 +1,14 @@
-// Code here handles what happens when a user submits a new character on the form.
-// Effectively it takes the form inputs then sends it to the server to save in the DB.
+//function defn for toggle to show or hide password characters
+function myFunction() {
+  var x = $("#password");
+  if (x.attr("type") === "password") {
+    x.attr("type","text");
+  } else {
+    x.attr("type", "password");
+  }
+}
+//when the user clicks the checkbox
+$("#check").on("click",myFunction);
 
 // when user clicks add-btn
 $("#login-btn").on("click", function(event) {

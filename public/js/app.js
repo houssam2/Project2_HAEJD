@@ -137,6 +137,7 @@ function getPricesForDay() {
                
                     stocks[p].x.push(prices[p].day);
                     stocks[p].y.push(prices[p].close);
+                    console.log("company is *** "+stocks[p].company);
                     console.log("xaxis data "+stocks[p].x);
                     console.log("yaxis data "+stocks[p].y);
 
