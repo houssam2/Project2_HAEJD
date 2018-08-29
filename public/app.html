@@ -2,564 +2,539 @@
 <html>
 
 <head>
-  <!--Import Google Icon Font-->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!--Import materialize.css-->
-  <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
-  <link type="text/css" rel="stylesheet" href="css/main.css" />
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="css/main.css" />
 
-  <!--Let browser know website is optimized for mobile-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>App</title>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>App</title>
 </head>
 
 <body>
-<nav class="blue darken-2">
-  <div class="container">
-    <div class="nav-wrapper">
-      <a href="index.html" class="brand-logo">HMJ GRAPHED</a>
+    <nav class="blue darken-2">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="/login" class="brand-logo">HMJ GRAPHED</a>
 
-        <a href="#" data-activates="side-nav" class="button-collapse show-on-large right">
-          <i class="material-icons">menu</i>
-        </a>
-        <ul class="right"> <!--took out hide-on-med-and-down because that will get rid of it when we size down-->
-          <!-- <li class="active"> <a href="index.html">Dashboard</a></li> -->
-          <span class="summary_info">Day: <span id="current_day" class="summary_info_value">0</span></span>
-          <span class="summary_info">Date: <span id="current_date" class="summary_info_value">YYYY-MM-DD</span></span>
-          <span class="summary_info">Profit/Loss: <span id="current_pl" class="summary_info_value">$0</span></span>
-        </ul>
-        <!-- Side Nav -->
-        <ul id="side-nav" class="side-nav">
-          <li>
-            <div class="user-view">
-              <div class="background">
-              <img src="img/stock.jpg" alt="">
+                <a href="#" data-activates="side-nav" class="button-collapse show-on-large right">
+                    <i class="material-icons">menu</i>
+                </a>
+                <ul class="right">
+                    <span class="summary_info">Day: <span id="current_day" class="summary_info_value">0</span></span>
+                    <span class="summary_info">Date: <span id="current_date" class="summary_info_value">YYYY-MM-DD</span></span>
+                    <span class="summary_info">Profit/Loss: <span id="current_pl" class="summary_info_value">$0</span></span>
+                </ul>
+                <!-- Side Nav -->
+                <ul id="side-nav" class="side-nav">
+                    <li>
+                        <div class="user-view">
+                            <div class="background">
+                                <img src="img/stock.jpg" alt="">
+                            </div>
+                        </div>
+
+                    </li>
+                    <!-- divider -->
+                    <div class="divider"></div>
+                    </li>
+                    <li>
+                        <a class="subheader">Account Controls</a>
+                    </li>
+                    <li>
+                        <a href="login.html" class="waves-effect">Logout</a>
+                    </li>
+                </ul>
             </div>
-              <!-- <a href="#"></a> -->
-                <!-- <img src="img/jose.png" alt="" class="circle"> -->
-                <!-- jose.png replaced person1 from brad's code -->
-              
-              <!-- <a href="#">
-              <span class="name white-text">Jose Gavilanes</span>
-            </a> -->
-            <!-- <a href="#">
-              <span class="email white-text">jose@jose&thepussycats.com</span>
-            </a> -->
+        </div>
+    </nav>
+    <div class="container startstop">
+        <div class="col s12 m2 l3">
+            <a id="start_btn" class="waves-effect waves-light btn-large"> <i class="material-icons">play_arrow</i> Start Investing!</a>
+            <a id="pause_btn" class="waves-effect waves-light btn-large"> <i class="material-icons">pause</i> Take a Vacation!</a>
+            <a id="stop_btn" class="waves-effect waves-light btn-large"> <i class="material-icons">stop</i> Stop Investing!</a>
+        </div>
+    </div>
+
+    <!-- Stats Section -->
+    <section class="section section-stats center">
+        <div class="row">
+
+            <!-- Stock one -->
+            <div class="col s12 m2 13">
+                <div id="card-panel0" class="card-panel blue lighten-1 white-text center" data-panel-no="0">
+                    <i class="material-icons">show_chart</i>
+                    <h5 id="name0"></h5>
+                    <h6 id="buy_prc0"></h6>
+                    <h6 id="curr_prc0"></h6>
+                    <h6 id="pl0"></h6>
+                    <a class="sell-btns waves-effect waves-light btn deep-orange accent-4" data-sell="0">Sell</a>
+
+                </div>
             </div>
-            <!-- <li>
-              <a href="index.html"><i class="material-icons">dashboard</i>Dashboard</a>
-              </li> -->
-              <!-- <li><a href="fakelink1.html">Empty Link 1</a></li>
-              <li><a href="fakelink2.html">Empty Link 2</a></li>
-              <li><a href="fakelink3.html">Empty Link 3</a></li> -->
-          </li>
-          <!-- divider -->
-          <div class="divider"></div>
-          </li>
-          <li>
-            <a class="subheader">Account Controls</a>
-          </li>
-          <li>
-            <a href="login.html" class="waves-effect">Logout</a>
-          </li>
-        </ul>
-    </div>
-  </div>
-</nav>
-<div class="container startstop">
-  <div class="col s12 m2 l3">
-      <a id="start_btn" class="waves-effect waves-light btn-large"> <i class="material-icons">play_arrow</i> Start Investing!</a>
-      <a id="pause_btn" class="waves-effect waves-light btn-large"> <i class="material-icons">pause</i> Take a Vacation!</a>
-      <a id="stop_btn" class="waves-effect waves-light btn-large"> <i class="material-icons">stop</i> Stop Investing!</a>
-  </div>
-</div>
 
-
-
-<!-- Stats Section -->
-<section class="section section-stats center">
-<div class="row">
-
-  <!-- Stock one -->
-  <div class="col s12 m2 13">
-    <div id="card-panel0" class="card-panel blue lighten-1 white-text center" data-panel-no="0">
-      <i class="material-icons">show_chart</i>
-      <h5 id="name0"></h5>
-      <h6 id="buy_prc0"></h6>
-      <h6 id="curr_prc0"></h6>
-      <h6 id="pl0"></h6>
-      <a class="sell-btns waves-effect waves-light btn deep-orange accent-4" data-sell="0">Sell</a>
-      
-    </div>
-  </div>
-
-  <!-- Stock two -->
-  <div class="col s12 m2 13">
-    <div id="card-panel1" id="card-panel1" class="card-panel blue lighten-1 white-text center" data-panel-no="2">
-      <i class="material-icons">show_chart</i>
-      <h5 id="name1"></h5>
-      <h6 id="buy_prc1"></h6>
-      <h6 id="curr_prc1"></h6>
-      <h6 id="pl1"></h6>
-      <a class="sell-btns waves-effect waves-light btn deep-orange accent-4" data-sell="1">Sell</a>
-    </div>
-  </div>
-
-  <!-- Stock three -->
-  <div class="col s12 m2 13">
-    <div id="card-panel2" class="card-panel blue lighten-1 white-text center" data-panel-no="3">
-      <i class="material-icons">show_chart</i>
-      <h5 id="name2"></h5>
-      <h6 id="buy_prc2"></h6>
-      <h6 id="curr_prc2"></h6>
-      <h6 id="pl2"></h6>
-      <a class="sell-btns waves-effect waves-light btn deep-orange accent-4" data-sell="2">Sell</a>
-    </div>
-  </div>
-
-  <!-- Stock four -->
-  <div class="col s12 m2 13">
-    <div id="card-panel3" class="card-panel blue lighten-1 white-text center" data-panel-no="4">
-      <i class="material-icons">show_chart</i>
-      <h5 id="name3"></h5>
-      <h6 id="buy_prc3"></h6>
-      <h6 id="curr_prc3"></h6>
-      <h6 id="pl3"></h6>
-      <a class="sell-btns waves-effect waves-light btn deep-orange accent-4" data-sell="3">Sell</a>
-    </div>
-  </div>
-
-  <!-- Stock five -->
-  <div class="col s12 m2 13">
-    <div id="card-panel4" class="card-panel blue lighten-1 white-text center" data-panel-no="5">
-      <i class="material-icons">show_chart</i>
-      <h5 id="name4"></h5>
-      <h6 id="buy_prc4"></h6>
-      <h6 id="curr_prc4"></h6>
-      <h6 id="pl4"></h6>
-      <a class="sell-btns waves-effect waves-light btn deep-orange accent-4" data-sell="4">Sell</a>
-    </div>
-  </div>
-
-  <!-- Stock Six -->
-  <div class="col s12 m2 13">
-    <div id="card-panel5" class="card-panel blue lighten-1 white-text center" data-panel-no="6">
-      <i class="material-icons">show_chart</i>
-      <h5 id="name5"></h5>
-      <h6 id="buy_prc5"></h6>
-      <h6 id="curr_prc5"></h6>
-      <h6 id="pl5"></h6>
-      <a class="sell-btns waves-effect waves-light btn deep-orange accent-4" data-sell="5">Sell</a>
-    </div>
-  </div>
-
-</div>
-</section>
-
-<!-- New section where stocks will be shown  -->
-
-<!-- Test stock section 1 -->
-
-<div class="cardPic">
-    <div class="row">
-    <!-- Empty Div added for spacing-->
-    <div class="col s6 m3 l1">
-       <div id="empty-card" class="card"></div>
-    </div>
-    <!-- End of empty div -->
-    <!-- American Express -->
-    <div class="col s6 m3 l1">
-       <div id="Amex-card" class="card">
-          <div class="card-image" >
-             <!-- <img src="img/amex.jpg"> -->
-             <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="Amex"><img src="img/amex.jpg"></a>
-             <!-- <span class="card-title text-darken-4">American Express</span> -->
-          </div>
-          <div class="card-content">
-             <h5>AXP</h5>
-             <h6><span id="Amex"></span></h6>
-             <div id="Amex_graph"></div>
-          </div>
-          <div class="card-action">
-             <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="Amex">Buy</a>
-          </div>
-       </div>
-    </div>
-    <!-- Apple -->
-    <div class="col s6 m3 l1">
-       <div id="Apple-card" class="card">
-          <div class="card-image">
-             <!-- <img src="img/apple.png"> -->
-             <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="Apple"><img src="img/apple.png"></a>
+            <!-- Stock two -->
+            <div class="col s12 m2 13">
+                <div id="card-panel1" id="card-panel1" class="card-panel blue lighten-1 white-text center" data-panel-no="2">
+                    <i class="material-icons">show_chart</i>
+                    <h5 id="name1"></h5>
+                    <h6 id="buy_prc1"></h6>
+                    <h6 id="curr_prc1"></h6>
+                    <h6 id="pl1"></h6>
+                    <a class="sell-btns waves-effect waves-light btn deep-orange accent-4" data-sell="1">Sell</a>
+                </div>
             </div>
-          <div class="card-content">
-             <h5>Appl</h5>
-             <h6><span id="Apple"></span></h6>
-             <div id="Apple_graph"></div>
-          </div>
-          <div class="card-action">
-             <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="Apple">Buy</a>
-          </div>
-       </div>
-    </div>
-    <!-- Boeing -->
-    <div class="col s6 m3 l1">
-       <div id="Boeing-card" class="card">
-          <div class="card-image">
-             <!-- <img src="img/boeing.jpg"> -->
-             <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="Boeing"><img src="img/boeing.jpg"></a>
-          </div>
-          <div class="card-content">
-             <h5>BA</h5>
-             <h6><span id="Boeing"></span></h6>
-             <div id="Boeing_graph"></div>
-          </div>
-          <div class="card-action">
-             <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="Boeing">Buy</a>
-          </div>
-       </div>
-    </div>
-    <!-- Caterpillar -->
-    <div class="col s6 m3 l1">
-       <div id="Caterpillar-card" class="card">
-          <div class="card-image">
-             <!-- <img src="img/CAT.jpg"> -->
-             <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="Caterpillar"><img src="img/CAT.jpg"></a>
-          </div>
-          <div class="card-content">
-             <h5>CAT</h5>
-             <h6><span id="Caterpillar"></span></h6>
-             <div id="Caterpillar_graph"></div>
-          </div>
-          <div class="card-action">
-             <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="Caterpillar">Buy</a>
-          </div>
-       </div>
-    </div>
-    <!-- Chevron -->
-    <div class="col s6 m3 l1">
-       <div id="Chevron-card" class="card">
-          <div class="card-image">
-             <!-- <img src="img/chevron.jpg"> -->
-             <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="Chevron"><img src="img/chevron.jpg"></a>
-          </div>
-          <div class="card-content">
-             <h5>CVX</h5>
-             <h6><span id="Chevron"></span></h6>
-             <div id="Chevron_graph"></div>
-          </div>
-          <div class="card-action">
-             <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="Chevron">Buy</a>
-          </div>
-       </div>
-    </div>
-    <!-- Cisco -->
-    <div class="col s6 m3 l1">
-       <div id="Cisco-card" class="card">
-          <div class="card-image">
-             <!-- <img src="img/cisco.jpg"> -->
-             <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="Cisco"><img src="img/cisco.jpg"></a>
-          </div>
-          <div class="card-content">
-             <h5>CSCO</h5>
-             <h6><span id="Cisco"></span></h6>
-             <div id="Cisco_graph"></div>
-          </div>
-          <div class="card-action">
-             <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="Cisco">Buy</a>
-          </div>
-       </div>
-    </div>
-    <!-- Coca Cola -->
-    <div class="col s6 m3 l1">
-       <div id="CocaCola-card" class="card">
-          <div class="card-image">
-             <!-- <img src="img/cocacola.jpg"> -->
-             <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="CocaCola"><img src="img/cocacola.jpg"></a>
-          </div>
-          <div class="card-content">
-             <h5>KO</h5>
-             <h6><span id="CocaCola"></span></h6>
-             <div id="CocaCola_graph"></div>
-          </div>
-          <div class="card-action">
-             <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="CocaCola">Buy</a>
-          </div>
-       </div>
-    </div>
-    <!-- Dow DuPont -->
-    <div class="col s6 m3 l1">
-       <div id="DowDuPont-card" class="card">
-          <div class="card-image">
-             <!-- <img src="img/dupont.jpg"> -->
-             <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="DowDuPont"><img src="img/dupont.jpg"></a>
-          </div>
-          <div class="card-content">
-             <h5>Dow</h5>
-             <h6><span id="DowDuPont"></span></h6>
-             <div id="DowDuPont_graph"></div>
-          </div>
-          <div class="card-action">
-             <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="DowDuPont">Buy</a>
-          </div>
-       </div>
-    </div>
-    <!-- PG -->
-    <div class="col s6 m3 l1">
-       <div id="PG-card" class="card">
-          <div class="card-image">
-             <!-- <img src="img/pg.jpg"> -->
-             <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="PG"><img src="img/pg.jpg"></a>
-          </div>
-          <div class="card-content">
-             <h5>PG</h5>
-             <h6><span id="PG"></span></h6>
-             <div id="PG_graph"></div>
-          </div>
-          <div class="card-action">
-             <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="PG">Buy</a>
-          </div>
-       </div>
-    </div>
-    <!-- HomeDepot -->
-    <div class="col s6 m3 l1">
-       <div id="HomeDepot-card" class="card">
-          <div class="card-image">
-             <!-- <img src="img/homeDepot.jpg"> -->
-             <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="HomeDepot"><img src="img/homeDepot.jpg"></a>
-          </div>
-          <div class="card-content">
-             <h5>HD</h5>
-             <h6><span id="HomeDepot"></span></h6>
-             <div id="HomeDepot_graph"></div>
-          </div>
-          <div class="card-action">
-             <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="HomeDepot">Buy</a>
-          </div>
-       </div>
-    </div>
-    <!-- Empty Div added for spacing-->
-    <div class="col s6 m3 l1">
-       <div id="empty-card" class="card"></div>
-    </div>
-    <!-- End of empty div -->
+
+            <!-- Stock three -->
+            <div class="col s12 m2 13">
+                <div id="card-panel2" class="card-panel blue lighten-1 white-text center" data-panel-no="3">
+                    <i class="material-icons">show_chart</i>
+                    <h5 id="name2"></h5>
+                    <h6 id="buy_prc2"></h6>
+                    <h6 id="curr_prc2"></h6>
+                    <h6 id="pl2"></h6>
+                    <a class="sell-btns waves-effect waves-light btn deep-orange accent-4" data-sell="2">Sell</a>
+                </div>
+            </div>
+
+            <!-- Stock four -->
+            <div class="col s12 m2 13">
+                <div id="card-panel3" class="card-panel blue lighten-1 white-text center" data-panel-no="4">
+                    <i class="material-icons">show_chart</i>
+                    <h5 id="name3"></h5>
+                    <h6 id="buy_prc3"></h6>
+                    <h6 id="curr_prc3"></h6>
+                    <h6 id="pl3"></h6>
+                    <a class="sell-btns waves-effect waves-light btn deep-orange accent-4" data-sell="3">Sell</a>
+                </div>
+            </div>
+
+            <!-- Stock five -->
+            <div class="col s12 m2 13">
+                <div id="card-panel4" class="card-panel blue lighten-1 white-text center" data-panel-no="5">
+                    <i class="material-icons">show_chart</i>
+                    <h5 id="name4"></h5>
+                    <h6 id="buy_prc4"></h6>
+                    <h6 id="curr_prc4"></h6>
+                    <h6 id="pl4"></h6>
+                    <a class="sell-btns waves-effect waves-light btn deep-orange accent-4" data-sell="4">Sell</a>
+                </div>
+            </div>
+
+            <!-- Stock Six -->
+            <div class="col s12 m2 13">
+                <div id="card-panel5" class="card-panel blue lighten-1 white-text center" data-panel-no="6">
+                    <i class="material-icons">show_chart</i>
+                    <h5 id="name5"></h5>
+                    <h6 id="buy_prc5"></h6>
+                    <h6 id="curr_prc5"></h6>
+                    <h6 id="pl5"></h6>
+                    <a class="sell-btns waves-effect waves-light btn deep-orange accent-4" data-sell="5">Sell</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- New section where stocks will be shown  -->
+
+    <!-- Test stock section 1 -->
+
+    <div class="cardPic">
+        <div class="row">
+            <!-- Empty Div added for spacing-->
+            <div class="col s6 m3 l1">
+                <div id="empty-card" class="card"></div>
+            </div>
+            <!-- End of empty div -->
+            <!-- American Express -->
+            <div class="col s6 m3 l1">
+                <div id="Amex-card" class="card">
+                    <div class="card-image">
+                        <!-- <img src="img/amex.jpg"> -->
+                        <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="Amex"><img src="img/amex.jpg"></a>
+                        <!-- <span class="card-title text-darken-4">American Express</span> -->
+                    </div>
+                    <div class="card-content">
+                        <h5>AXP</h5>
+                        <h6><span id="Amex"></span></h6>
+                        <div id="Amex_graph"></div>
+                    </div>
+                    <div class="card-action">
+                        <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="Amex">Buy</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Apple -->
+            <div class="col s6 m3 l1">
+                <div id="Apple-card" class="card">
+                    <div class="card-image">
+                        <!-- <img src="img/apple.png"> -->
+                        <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="Apple"><img src="img/apple.png"></a>
+                    </div>
+                    <div class="card-content">
+                        <h5>Appl</h5>
+                        <h6><span id="Apple"></span></h6>
+                        <div id="Apple_graph"></div>
+                    </div>
+                    <div class="card-action">
+                        <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="Apple">Buy</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Boeing -->
+            <div class="col s6 m3 l1">
+                <div id="Boeing-card" class="card">
+                    <div class="card-image">
+                        <!-- <img src="img/boeing.jpg"> -->
+                        <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="Boeing"><img src="img/boeing.jpg"></a>
+                    </div>
+                    <div class="card-content">
+                        <h5>BA</h5>
+                        <h6><span id="Boeing"></span></h6>
+                        <div id="Boeing_graph"></div>
+                    </div>
+                    <div class="card-action">
+                        <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="Boeing">Buy</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Caterpillar -->
+            <div class="col s6 m3 l1">
+                <div id="Caterpillar-card" class="card">
+                    <div class="card-image">
+                        <!-- <img src="img/CAT.jpg"> -->
+                        <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="Caterpillar"><img src="img/CAT.jpg"></a>
+                    </div>
+                    <div class="card-content">
+                        <h5>CAT</h5>
+                        <h6><span id="Caterpillar"></span></h6>
+                        <div id="Caterpillar_graph"></div>
+                    </div>
+                    <div class="card-action">
+                        <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="Caterpillar">Buy</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Chevron -->
+            <div class="col s6 m3 l1">
+                <div id="Chevron-card" class="card">
+                    <div class="card-image">
+                        <!-- <img src="img/chevron.jpg"> -->
+                        <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="Chevron"><img src="img/chevron.jpg"></a>
+                    </div>
+                    <div class="card-content">
+                        <h5>CVX</h5>
+                        <h6><span id="Chevron"></span></h6>
+                        <div id="Chevron_graph"></div>
+                    </div>
+                    <div class="card-action">
+                        <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="Chevron">Buy</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Cisco -->
+            <div class="col s6 m3 l1">
+                <div id="Cisco-card" class="card">
+                    <div class="card-image">
+                        <!-- <img src="img/cisco.jpg"> -->
+                        <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="Cisco"><img src="img/cisco.jpg"></a>
+                    </div>
+                    <div class="card-content">
+                        <h5>CSCO</h5>
+                        <h6><span id="Cisco"></span></h6>
+                        <div id="Cisco_graph"></div>
+                    </div>
+                    <div class="card-action">
+                        <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="Cisco">Buy</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Coca Cola -->
+            <div class="col s6 m3 l1">
+                <div id="CocaCola-card" class="card">
+                    <div class="card-image">
+                        <!-- <img src="img/cocacola.jpg"> -->
+                        <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="CocaCola"><img src="img/cocacola.jpg"></a>
+                    </div>
+                    <div class="card-content">
+                        <h5>KO</h5>
+                        <h6><span id="CocaCola"></span></h6>
+                        <div id="CocaCola_graph"></div>
+                    </div>
+                    <div class="card-action">
+                        <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="CocaCola">Buy</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Dow DuPont -->
+            <div class="col s6 m3 l1">
+                <div id="DowDuPont-card" class="card">
+                    <div class="card-image">
+                        <!-- <img src="img/dupont.jpg"> -->
+                        <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="DowDuPont"><img src="img/dupont.jpg"></a>
+                    </div>
+                    <div class="card-content">
+                        <h5>Dow</h5>
+                        <h6><span id="DowDuPont"></span></h6>
+                        <div id="DowDuPont_graph"></div>
+                    </div>
+                    <div class="card-action">
+                        <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="DowDuPont">Buy</a>
+                    </div>
+                </div>
+            </div>
+            <!-- PG -->
+            <div class="col s6 m3 l1">
+                <div id="PG-card" class="card">
+                    <div class="card-image">
+                        <!-- <img src="img/pg.jpg"> -->
+                        <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="PG"><img src="img/pg.jpg"></a>
+                    </div>
+                    <div class="card-content">
+                        <h5>PG</h5>
+                        <h6><span id="PG"></span></h6>
+                        <div id="PG_graph"></div>
+                    </div>
+                    <div class="card-action">
+                        <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="PG">Buy</a>
+                    </div>
+                </div>
+            </div>
+            <!-- HomeDepot -->
+            <div class="col s6 m3 l1">
+                <div id="HomeDepot-card" class="card">
+                    <div class="card-image">
+                        <!-- <img src="img/homeDepot.jpg"> -->
+                        <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="HomeDepot"><img src="img/homeDepot.jpg"></a>
+                    </div>
+                    <div class="card-content">
+                        <h5>HD</h5>
+                        <h6><span id="HomeDepot"></span></h6>
+                        <div id="HomeDepot_graph"></div>
+                    </div>
+                    <div class="card-action">
+                        <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="HomeDepot">Buy</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Empty Div added for spacing-->
+            <div class="col s6 m3 l1">
+                <div id="empty-card" class="card"></div>
+            </div>
+            <!-- End of empty div -->
+        </div>
+
+        <div class="row">
+            <!-- Empty Div added for spacing-->
+            <div class="col s6 m3 l1">
+                <div id="empty-card" class="card"></div>
+            </div>
+            <!-- End of empty div -->
+            <!-- IBM -->
+            <div class="col s6 m3 l1">
+                <div id="IBM-card" class="card">
+                    <div class="card-image">
+                        <!-- <img src="img/ibm.jpg"> -->
+                        <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="IBM"><img src="img/ibm.jpg"></a>
+                    </div>
+                    <div class="card-content">
+                        <h5>IBM</h5>
+                        <h6><span id="IBM"></span></h6>
+                        <div id="IBM_graph"></div>
+                    </div>
+                    <div class="card-action">
+                        <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="IBM">Buy</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Intel -->
+            <div class="col s6 m3 l1">
+                <div id="Intel-card" class="card">
+                    <div class="card-image">
+                        <!-- <img src="img/Intel.jpg"> -->
+                        <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="Intel"><img src="img/Intel.jpg"></a>
+                    </div>
+                    <div class="card-content">
+                        <h5>INTC</h5>
+                        <h6><span id="Intel"></span></h6>
+                        <div id="Intel_graph"></div>
+                    </div>
+                    <div class="card-action">
+                        <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="Intel">Buy</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Johnson&Johnson -->
+            <div class="col s6 m3 l1">
+                <div id="Johnson&Johnson-card" class="card">
+                    <div class="card-image">
+                        <!-- <img src="img/johnson.jpg"> -->
+                        <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="Johnson&Johnson"><img src="img/johnson.jpg"></a>
+                    </div>
+                    <div class="card-content">
+                        <h5>JNJ</h5>
+                        <h6><span id="Johnson&Johnson"></span></h6>
+                        <div id="Johnson&Johnson_graph"></div>
+                    </div>
+                    <div class="card-action">
+                        <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="Johnson&Johnson">Buy</a>
+                    </div>
+                </div>
+            </div>
+            <!-- JPMorgan&Chase -->
+            <div class="col s6 m3 l1">
+                <div id="JPMorgan&Chase-card" class="card">
+                    <div class="card-image">
+                        <!-- <img src="img/chase.jpg"> -->
+                        <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="JPMorgan&Chase"><img src="img/chase.jpg"></a>
+                    </div>
+                    <div class="card-content">
+                        <h5>JPM</h5>
+                        <h6><span id="JPMorgan&Chase"></span></h6>
+                        <div id="JPMorgan&Chase_graph"></div>
+                    </div>
+                    <div class="card-action">
+                        <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="JPMorgan&Chase">Buy</a>
+                    </div>
+                </div>
+            </div>
+            <!-- McDonalds -->
+            <div class="col s6 m3 l1">
+                <div id="McDonalds-card" class="card">
+                    <div class="card-image">
+                        <!-- <img src="img/mcdonalds.jpg"> -->
+                        <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="McDonalds"><img src="img/mcdonalds.jpg"></a>
+                    </div>
+                    <div class="card-content">
+                        <h5>MCD</h5>
+                        <h6><span id="McDonalds"></span></h6>
+                        <div id="McDonalds_graph"></div>
+                    </div>
+                    <div class="card-action">
+                        <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="McDonalds">Buy</a>
+                    </div>
+                </div>
+            </div>
+            <!-- 3M -->
+            <div class="col s6 m3 l1">
+                <div id="3M-card" class="card">
+                    <div class="card-image">
+                        <!-- <img src="img/3m.jpg"> -->
+                        <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="3M"><img src="img/3m.jpg"></a>
+                    </div>
+                    <div class="card-content">
+                        <h5>3M</h5>
+                        <h6><span id="3M"></span></h6>
+                        <div id="3M_graph"></div>
+                    </div>
+                    <div class="card-action">
+                        <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="3M">Buy</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Merck -->
+            <div class="col s6 m3 l1">
+                <div id="Merck-card" class="card">
+                    <div class="card-image">
+                        <!-- <img src="img/Merck.jpg"> -->
+                        <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="Merck"><img src="img/Merck.jpg"></a>
+                    </div>
+                    <div class="card-content">
+                        <h5>MRK</h5>
+                        <h6><span id="Merck"></span></h6>
+                        <div id="Merck_graph"></div>
+                    </div>
+                    <div class="card-action">
+                        <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="Merck">Buy</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Microsoft -->
+            <div class="col s6 m3 l1">
+                <div id="Microsoft-card" class="card">
+                    <div class="card-image">
+                        <!-- <img src="img/msft.png"> -->
+                        <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="Microsoft"><img src="img/msft.png"></a>
+                    </div>
+                    <div class="card-content">
+                        <h5>MSFT</h5>
+                        <h6><span id="Microsoft"></span></h6>
+                        <div id="Microsoft_graph"></div>
+                    </div>
+                    <div class="card-action">
+                        <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="Microsoft">Buy</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Pfizer -->
+            <div class="col s6 m3 l1">
+                <div id="Pfizer-card" class="card">
+                    <div class="card-image">
+                        <!-- <img src="img/pfizer.jpg"> -->
+                        <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="Pfizer"><img src="img/pfizer.jpg"></a>
+                    </div>
+                    <div class="card-content">
+                        <h5>PFE</h5>
+                        <h6><span id="Pfizer"></span></h6>
+                        <div id="Pfizer_graph"></div>
+                    </div>
+                    <div class="card-action">
+                        <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="Pfizer">Buy</a>
+                    </div>
+                </div>
+            </div>
+            <!-- ExxonMobil -->
+            <div class="col s6 m3 l1">
+                <div id="ExxonMobil-card" class="card">
+                    <div class="card-image">
+                        <!-- <img src="img/exonmobil.jpg"> -->
+                        <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="ExxonMobil"><img src="img/exonmobil.jpg"></a>
+                    </div>
+                    <div class="card-content">
+                        <h5>XOM</h5>
+                        <h6><span id="ExxonMobil"></span></h6>
+                        <div id="ExxonMobil_graph"></div>
+                    </div>
+                    <div class="card-action">
+                        <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="ExxonMobil">Buy</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Empty Div added for spacing-->
+            <div class="col s6 m3 l1">
+                <div id="empty-card" class="card"></div>
+            </div>
+            <!-- End of empty div -->
+        </div>
     </div>
 
+    <!-- footer -->
+    <footer class="page-footer blue darken-2">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">About Us</h5>
+                    <p class="grey-text text-lighten-4">HMJ Graphed was started by five students in a Rutgers Coding Bootcamp class with nothing better to do.
+                    </p>
+                </div>
 
-    <div class="row">
-    <!-- Empty Div added for spacing-->
-    <div class="col s6 m3 l1">
-       <div id="empty-card" class="card"></div>
-    </div>
-    <!-- End of empty div -->
-    <!-- IBM -->
-    <div class="col s6 m3 l1">
-       <div id="IBM-card" class="card">
-          <div class="card-image">
-             <!-- <img src="img/ibm.jpg"> -->
-             <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="IBM"><img src="img/ibm.jpg"></a>
-          </div>
-          <div class="card-content">
-             <h5>IBM</h5>
-             <h6><span id="IBM"></span></h6>
-             <div id="IBM_graph"></div>
-          </div>
-          <div class="card-action">
-             <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="IBM">Buy</a>
-          </div>
-       </div>
-    </div>
-    <!-- Intel -->
-    <div class="col s6 m3 l1">
-       <div id="Intel-card" class="card">
-          <div class="card-image">
-             <!-- <img src="img/Intel.jpg"> -->
-             <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="Intel"><img src="img/Intel.jpg"></a>
-          </div>
-          <div class="card-content">
-             <h5>INTC</h5>
-             <h6><span id="Intel"></span></h6>
-             <div id="Intel_graph"></div>
-          </div>
-          <div class="card-action">
-             <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="Intel">Buy</a>
-          </div>
-       </div>
-    </div>
-    <!-- Johnson&Johnson -->
-    <div class="col s6 m3 l1">
-       <div id="Johnson&Johnson-card" class="card">
-          <div class="card-image">
-             <!-- <img src="img/johnson.jpg"> -->
-             <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="Johnson&Johnson"><img src="img/johnson.jpg"></a>
-          </div>
-          <div class="card-content">
-             <h5>JNJ</h5>
-             <h6><span id="Johnson&Johnson"></span></h6>
-             <div id="Johnson&Johnson_graph"></div>
-          </div>
-          <div class="card-action">
-             <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="Johnson&Johnson">Buy</a>
-          </div>
-       </div>
-    </div>
-    <!-- JPMorgan&Chase -->
-    <div class="col s6 m3 l1">
-       <div id="JPMorgan&Chase-card" class="card">
-          <div class="card-image">
-             <!-- <img src="img/chase.jpg"> -->
-             <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="JPMorgan&Chase"><img src="img/chase.jpg"></a>
-          </div>
-          <div class="card-content">
-             <h5>JPM</h5>
-             <h6><span id="JPMorgan&Chase"></span></h6>
-             <div id="JPMorgan&Chase_graph"></div>
-          </div>
-          <div class="card-action">
-             <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="JPMorgan&Chase">Buy</a>
-          </div>
-       </div>
-    </div>
-    <!-- McDonalds -->
-    <div class="col s6 m3 l1">
-       <div id="McDonalds-card" class="card">
-          <div class="card-image">
-             <!-- <img src="img/mcdonalds.jpg"> -->
-             <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="McDonalds"><img src="img/mcdonalds.jpg"></a>
-          </div>
-          <div class="card-content">
-             <h5>MCD</h5>
-             <h6><span id="McDonalds"></span></h6>
-             <div id="McDonalds_graph"></div>
-          </div>
-          <div class="card-action">
-             <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="McDonalds">Buy</a>
-          </div>
-       </div>
-    </div>
-    <!-- 3M -->
-    <div class="col s6 m3 l1">
-       <div id="3M-card" class="card">
-          <div class="card-image">
-             <!-- <img src="img/3m.jpg"> -->
-             <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="3M"><img src="img/3m.jpg"></a>
-          </div>
-          <div class="card-content">
-             <h5>3M</h5>
-             <h6><span id="3M"></span></h6>
-             <div id="3M_graph"></div>
-          </div>
-          <div class="card-action">
-             <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="3M">Buy</a>
-          </div>
-       </div>
-    </div>
-    <!-- Merck -->
-    <div class="col s6 m3 l1">
-       <div id="Merck-card" class="card">
-          <div class="card-image">
-             <!-- <img src="img/Merck.jpg"> -->
-             <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="Merck"><img src="img/Merck.jpg"></a>
-          </div>
-          <div class="card-content">
-             <h5>MRK</h5>
-             <h6><span id="Merck"></span></h6>
-             <div id="Merck_graph"></div>
-          </div>
-          <div class="card-action">
-             <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="Merck">Buy</a>
-          </div>
-       </div>
-    </div>
-    <!-- Microsoft -->
-    <div class="col s6 m3 l1">
-       <div id="Microsoft-card" class="card">
-          <div class="card-image">
-             <!-- <img src="img/msft.png"> -->
-             <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="Microsoft"><img src="img/msft.png"></a>
-          </div>
-          <div class="card-content">
-             <h5>MSFT</h5>
-             <h6><span id="Microsoft"></span></h6>
-             <div id="Microsoft_graph"></div>
-          </div>
-          <div class="card-action">
-             <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="Microsoft">Buy</a>
-          </div>
-       </div>
-    </div>
-    <!-- Pfizer -->
-    <div class="col s6 m3 l1">
-       <div id="Pfizer-card" class="card">
-          <div class="card-image">
-             <!-- <img src="img/pfizer.jpg"> -->
-             <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="Pfizer"><img src="img/pfizer.jpg"></a>
-          </div>
-          <div class="card-content">
-             <h5>PFE</h5>
-             <h6><span id="Pfizer"></span></h6>
-             <div id="Pfizer_graph"></div>
-          </div>
-          <div class="card-action">
-             <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="Pfizer">Buy</a>
-          </div>
-       </div>
-    </div>
-    <!-- ExxonMobil -->
-    <div class="col s6 m3 l1">
-       <div id="ExxonMobil-card" class="card">
-          <div class="card-image">
-             <!-- <img src="img/exonmobil.jpg"> -->
-             <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="ExxonMobil"><img src="img/exonmobil.jpg"></a>
-          </div>
-          <div class="card-content">
-             <h5>XOM</h5>
-             <h6><span id="ExxonMobil"></span></h6>
-             <div id="ExxonMobil_graph"></div>
-          </div>
-          <div class="card-action">
-             <a class="buy-btns waves-effect waves-light btn-small" data-cmpy="ExxonMobil">Buy</a>
-          </div>
-       </div>
-    </div>
-    <!-- Empty Div added for spacing-->
-    <div class="col s6 m3 l1">
-       <div id="empty-card" class="card"></div>
-    </div>
-    <!-- End of empty div -->
- </div>
- </div>
+            </div>
+        </div>
+        <div class="footer-copyright blue darken-1">
+            <div class="container">
+                HMJ GRAPHED © 2018
+                <!-- <a class="grey-text text-lighten-4 right" href="#!">Terms and Conditions</a> -->
+            </div>
+        </div>
+    </footer>
 
-
-
-<!-- footer -->
-<footer class="page-footer blue darken-2">
-  <div class="container">
-    <div class="row">
-      <div class="col l6 s12">
-        <h5 class="white-text">About Us</h5>
-        <p class="grey-text text-lighten-4">HMJ Graphed was started by five students in a Rutgers Coding Bootcamp class with nothing
-          better to do.
-        </p>
-      </div>
-
-    </div>
-  </div>
-  <div class="footer-copyright blue darken-1">
-    <div class="container">
-    HMJ GRAPHED © 2018 
-    <!-- <a class="grey-text text-lighten-4 right" href="#!">Terms and Conditions</a> -->
-    </div>
-  </div>
-</footer>
-
-        
-
-  <!--Import jQuery before materialize.js-->
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="js/materialize.min.js"></script>
-  <script src="https://d3js.org/d3.v4.min.js"></script>  
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script type="text/javascript" src="js/app.js"></script>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
 </body>
-</html>

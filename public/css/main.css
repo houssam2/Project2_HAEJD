@@ -91,7 +91,6 @@ main {
 .summary_info_value {
   color: #FFFFFF;
   background: #4d4545;
-  /* text-shadow: 4px 3px 0 #7A7A7A; */
 }
 
 .startstop {
@@ -104,5 +103,5 @@ main {
 }
 
 .showcase {
-  color: #d50000; 
+  color: #d50000;  
 }

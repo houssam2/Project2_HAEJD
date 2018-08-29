@@ -2,193 +2,151 @@
 <html>
 
 <head>
-  <!--Import Google Icon Font-->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-  <!--Import materialize.css-->
-  <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
-  <link type="text/css" rel="stylesheet" href="css/main.css" />
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="css/main.css" />
 
-  <!--Let browser know website is optimized for mobile-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>register</title>
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>register</title>
 </head>
 
-
 <body>
-  <!-- Header -->
-  <header class="main-header-inner">
-    <nav class="transparent">
-      <div class="container">
-        <div class="nav-wrapper">
-          <a href="#" class="brand-logo">HMJ GRAPHED</a>
-          <a href="#" data-activates="mobile-nav" class="button-collapse">
-            <i class="fa fa-bars"></i>
-          </a>
-          <ul class="right hide-on-med-and-down">
-            <li>
-              <a href="/login">Home</a>
-            </li>
-            <!-- <li>
-              <a href="#">Solutions</a>
-            </li> -->
-            <li>
-              <a class="active-link" href="/register">Sign Up</a>
-            </li>
-            <!--<li>
-              <a href="/login" class="btn purple modal-trigger">Login</a>
-            </li>-->
-          </ul>
+    <!-- Header -->
+    <header class="main-header-inner">
+        <nav class="transparent">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="/login" class="brand-logo">HMJ GRAPHED</a>
+                    <a href="#" data-activates="mobile-nav" class="button-collapse">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                    <ul class="right hide-on-med-and-down">
+                        <li>
+                            <a href="/login">Home</a>
+                        </li>
+                        <li>
+                            <a class="active-link" href="/register">Sign Up</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Showcase -->
+        <div class="showcase container">
+            <div class="row">
+                <div class="col s12 m10 offset-m1 center">
+                    <h4>Welcome To HMJ Graphed</h4>
+                    <h5><b>Sign Up Below And Start Investing Today!!</b></h5>
+                </div>
+            </div>
+        </div>
+    </header>
 
-          <!-- <ul class="side-nav" id="mobile-nav">
-            <h4 class="purple-text text-darken-4 center">GRAPHEDS</h4>
-            <li>
-              <div class="divider"></div>
-            </li>
-            <li>
-              <a href="/login">
-                <i class="fa fa-home grey-text text-darken-4"></i> Home</a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="fa fa-cog grey-text text-darken-4"></i> Solutions</a>
-            </li>
-            <li>
-              <a href="/register">
-                <i class="fa fa-users grey-text text-darken-4"></i> Sign Up</a>
-            </li>
-            <li>
-              <div class="divider"></div>
-            </li>
-            <li>
-              <a href="#" class="btn purple">Login</a>
-            </li>
-          </ul> -->
+    <!-- Sign Up Section -->
+    <section class="section sign-up">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6">
+                    <h4>Get a free account.</h4>
+                    <h6>100% Free</h6>
+                    <h4>No Credit Card or Bank Account Required</h4>
+                    <h6>No in app purchases!</h6>
+                    <h4>Learn about Investing</h4>
+                    <h6>Have some fun and do some insider trading.</h6>
+
+                </div>
+                <div class="col s12 m6">
+                    <div class="card-panel grey lighten-4 grey-text text-darken-4 z-depth-0">
+                        <form>
+
+                            <div class="input-field">
+                                <input type="text" id="username">
+                                <label for="username">User Name</label>
+                            </div>
+
+                            <div class="input-field">
+                                <input type="text" id="password">
+                                <label for="password">Password</label>
+                            </div>
+
+                            <input type="submit" value="signup" id="signup" class="btn btn-large green accent-3 btn-extended">
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </nav>
-    <!-- Showcase -->
-    <div class="showcase container">
-      <div class="row">
-        <div class="col s12 m10 offset-m1 center">
-          <h5>Welcome To HMJ Graphed</h5>
-          <h4><b>Sign Up Below And Start Investing Today!!</b></h4>
+    </section>
+
+    <!-- Footer -->
+    <footer class="page-footer blue darken-2">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">About Us</h5>
+                    <p class="grey-text text-lighten-4">HMJ Graphed was started by five students in a Rutgers Coding Bootcamp class with nothing better to do.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li>
+                            <a class="grey-text text-lighten-3" href="/login">Home</a>
+                        </li>
+                        <li>
+                            <a class="grey-text text-lighten-3" href="/register">Signup</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
         </div>
-      </div>
+        <div class="footer-copyright blue darken-1">
+            <div class="container">
+                HMJ GRAPHED © 2018
+                <!-- <a class="grey-text text-lighten-4 right" href="#!">Terms & Conditions</a> -->
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <h4>Account Login</h4>
+            <p>Login to access your account dashboard</p>
+            <form>
+                <div class="input-field">
+                    <input type="text" id="username">
+                    <label for="username">User Name</label>
+                </div>
+                <div class="input-field">
+                    <input type="text" id="password">
+                    <label for="password">Password</label>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close btn purple">
+                <i class="fa fa-lock"></i> Login</a>
+        </div>
     </div>
-  </header>
 
-  <!-- Sign Up Section -->
-  <section class="section sign-up">
-      <div class="container">
-       <div class="row">
-           <div class="col s12 m6">
-            <h4>Get a free account.</h4>
-            <h6>100% Free</h6>
-            <h4>No Credit Card or Bank Account Required</h4>
-            <h6>No in app purchases!</h6>
-            <h4>Learn about Investing</h4>
-            <h6>Have some fun and do some insider trading.</h6>
-
-           </div>
-           <div class="col s12 m6">
-               <div class="card-panel grey lighten-4 grey-text text-darken-4 z-depth-0">
-                   <form>
-                       
-                       <div class="input-field">
-                            <input type="text" id="username"> 
-                            <label for="username">User Name</label>
-                       </div>
-                      
-                       <div class="input-field">
-                            <input type="text" id="password"> 
-                            <label for="password">Password</label>
-                        </div>
-                        <!--<div class="input-field">
-                            <select id="role">
-                                <option value="" disabled selected>Select Background</option>
-                                <option value="professional">Professional Trader</option>
-                                <option value="professional">Student</option>
-                                <option value="professional">Hobbyist</option>
-                            </select>
-                            <label for="role">Role</label>  
-                        </div>-->
-                        <input type="submit" value="signup" id ="signup" class="btn btn-large green accent-3 btn-extended">
-                    </form>
-               </div>
-        </div>
-       </div>   
-      </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="page-footer blue darken-2">
-    <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">About Us</h5>
-          <p class="grey-text text-lighten-4">HMJ Graphed was started by five students in a Rutgers Coding Bootcamp class with nothing
-              better to do.</p>
-        </div>
-        <div class="col l4 offset-l2 s12">
-          <h5 class="white-text">Links</h5>
-          <ul>
-            <li>
-              <a class="grey-text text-lighten-3" href="/login">Home</a>
-            </li>
-            <li>
-              <a class="grey-text text-lighten-3" href="/register">Signup</a>
-            </li>
-
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer-copyright blue darken-1">
-      <div class="container">
-            HMJ GRAPHED © 2018 
-            <!-- <a class="grey-text text-lighten-4 right" href="#!">Terms & Conditions</a> -->
-      </div>
-    </div>
-  </footer>
-
-
-  <!-- Login Modal -->
-  <div id="login-modal" class="modal">
-    <div class="modal-content">
-      <h4>Account Login</h4>
-      <p>Login to access your account dashboard</p>
-      <form>
-        <div class="input-field">
-          <input type="text" id="username">
-          <label for="username">User Name</label>
-        </div>
-        <div class="input-field">
-            <input type="text" id="password">
-            <label for="password">Password</label>
-          </div>
-      </form>
-    </div>
-    <div class="modal-footer">
-     <!-- <a href="#!" class="modal-action modal-close btn grey">
-        <i class="fa fa-sync"></i> Reset Password</a> -->
-      <a href="#!" class="modal-action modal-close btn purple">
-        <i class="fa fa-lock"></i> Login</a>
-    </div>
-  </div>
-
-  <!--Import jQuery before materialize.js-->
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script type="text/javascript" src="js/materialize.min.js"></script>
-  <script type="text/javascript" src="js/register.js"></script>
-  <script>
-    $(document).ready(function () {
-      $('.carousel.carousel-slider').carousel({ fullWidth: true });
-      $('.button-collapse').sideNav();
-      $('.modal').modal();
-      $('select').material_select(); 
-    });
-  </script>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/register.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.carousel.carousel-slider').carousel({
+                fullWidth: true
+            });
+            $('.button-collapse').sideNav();
+            $('.modal').modal();
+            $('select').material_select();
+        });
+    </script>
 </body>
 
 </html>
