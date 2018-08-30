@@ -52,6 +52,9 @@ function init() {
     portfolio.length = 0;
     for (let i=0; i<card_panels.length; ++i) { card_panels[i] = false; }
 
+    first = true;
+    stocks = [];
+
     // Show all company cards
     $(".card").show();
     // Hide all portfolio cards
