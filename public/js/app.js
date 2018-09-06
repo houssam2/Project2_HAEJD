@@ -23,6 +23,7 @@ let first = true;
 
 
 let stocks =[];
+let stocks_port =[];
 
 
 let currentPrices = [];
@@ -54,6 +55,17 @@ function init() {
 
     first = true;
     stocks = [];
+    stocks_port = [];
+
+    for (let i=0; i<PORTFOLIO_MAX; ++i) {
+        stocks_port.push({
+            x: [], //day 
+            y: [], //closing price
+            mode: 'line'
+    //        price: 0.00,
+    //        company: ""
+        });
+    }
 
     // Show all company cards
     $(".card").show();
@@ -116,12 +128,14 @@ function getPricesForDay() {
                         y: [], //closing price
                         mode: 'line',
                         price: 0.00,
-                        company: ""
+                        company: prices[p].company
                     });
+
+
 
                 }
 
-                stocks[p].company = prices[p].company;
+                //stocks[p].company = prices[p].company;
                 stocks[p].price = prices[p].close;
 
                 // Populate company card with daily price
@@ -172,11 +186,42 @@ function getPricesForDay() {
 
                // }
                 //
-
+                      console.log("Entire stocks in portfolio ****"+JSON.stringify(stocks_port));
                 // If stock is in portfolio, update company's card-panel with daily price & P&L
                 for (let j=0; j<card_panels.length; ++j) {
                     if (card_panels[j] && $("#name"+j).text() === prices[p].company) {
                         $("#curr_prc"+j).text(parseFloat(prices[p].close).toFixed(2));
+                        //Code for portfolio graph
+                        console.log ("company in portfolio...****"+prices[p].company);
+                        stocks_port[j].x.push(prices[p].day);
+                        stocks_port[j].y.push(prices[p].close);
+                        console.log ("x-axis in portfolio...**** "+j+"////"+stocks_port[j].x);
+                        console.log ("y-axis in portfolio...****"+stocks_port[j].y);
+                        var data = [stocks_port[j]];
+
+                        var layout = {
+                            //title:'Line Plot',
+                            width: 50,
+                            height: 30,
+                            xaxis: {
+                            showticklabels: false
+                            },
+                            yaxis: {
+                            showticklabels: false
+                            },
+                        // autosize: true,
+                            margin: {
+                            autoexpand: false,
+                            l: 0,
+                            r: 0,
+                            t: 0,
+                            b:0
+                            },
+                        };
+                        
+                        Plotly.newPlot("graph"+j, data, layout, {displayModeBar: false});
+
+                        //
                         let curr_prc = parseFloat(prices[p].close);
                         let buy_prc = parseFloat( $("#buy_prc"+j).text() );
                         let pl = curr_prc - buy_prc;
@@ -255,6 +300,39 @@ function buy() {
         $("#curr_prc"+available_card_panel).text(parseFloat(stock_entry.buy_price).toFixed(2));
         $("#pl"+available_card_panel).text("0.00");
         $("#card-panel"+available_card_panel).show();
+
+        //initializing the x and y values for portfolio graph
+        stocks_port[available_card_panel].x.push(cmpy_obj.day);
+        console.log("initial x axis value after buying ****: "+available_card_panel+"/////"+stocks_port[available_card_panel].x);
+        stocks_port[available_card_panel].y.push(stock_entry.buy_price);
+        console.log("initial y axis value after buying ****: "+stocks_port[available_card_panel].y);
+
+        var data = [stocks_port[available_card_panel]];
+
+                        var layout = {
+                            //title:'Line Plot',
+                            width: 50,
+                            height: 30,
+                            xaxis: {
+                            showticklabels: false
+                            },
+                            yaxis: {
+                            showticklabels: false
+                            },
+                        // autosize: true,
+                            margin: {
+                            autoexpand: false,
+                            l: 0,
+                            r: 0,
+                            t: 0,
+                            b:0
+                            },
+                        };
+                        
+        Plotly.newPlot("graph"+available_card_panel, data, layout, {displayModeBar: false});
+
+        //
+
         console.log("EXIT POST /api/buy");
     });
     console.log("Exit buy()");
@@ -282,6 +360,8 @@ function sell() {
     console.log(card_panels);
     console.log("card_panel_number="+card_panel_number);
 
+  
+
     // Get company name from card panel
     let cmpy_name = $("#name"+card_panel_number).text();
 
@@ -305,6 +385,12 @@ function sell() {
               }
     }).then(function(data) {
         console.log("ENTER SELL_RESPONSE: "+JSON.stringify(data));
+
+        //resetting the portfolio graph
+        stocks_port[card_panel_number].x = [];
+        stocks_port[card_panel_number].y = [];
+        //
+
         // Remove entry from portfolio array
         portfolio.splice(entry_ix,1);
 
